@@ -3,8 +3,8 @@
 import logging
 
 import grpc
-import helloworld_pb2
-import helloworld_pb2_grpc
+import helloworld_pb2 # contains the message definitions
+import helloworld_pb2_grpc # contains the service for stubbing
 
 
 def run():
