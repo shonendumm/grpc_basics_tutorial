@@ -17,6 +17,10 @@ def run():
         response = stub.SayHello(helloworld_pb2.HelloRequest(name="soohian"))
         print("Greeter client received: " + response.message)
         
+        # Expect a stream of replies based on num_times
+        responses = stub.ManyHello(helloworld_pb2.ManyHelloRequest(name="soosoo", num_times=5))
+        for res in responses:
+            print("Received: " + res.message)
 
 if __name__ == "__main__":
     logging.basicConfig()

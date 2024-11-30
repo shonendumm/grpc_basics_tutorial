@@ -8,6 +8,9 @@ package helloworld;
 service Greeter {
     rpc SayHello (HelloRequest) returns (HelloReply) {}
 
+    // Sends multiple greetings
+    rpc ManyHello (ManyHelloRequest) returns (stream HelloReply) {}
+
 }
 
 // message definition
@@ -17,4 +20,9 @@ message HelloRequest {
 
 message HelloReply {
     string message = 1;
+}
+
+message ManyHelloRequest {
+    string name = 1;
+    int32 num_times = 2;
 }

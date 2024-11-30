@@ -16,6 +16,11 @@ class Greeter(helloworld_pb2_grpc.GreeterServicer):
         name = "super" + request.name
         return helloworld_pb2.HelloReply(message=f"Hello, {name}!")
     
+    def ManyHello(self, request, context):
+        times = request.num_times
+        for x in range(times):
+            yield helloworld_pb2.HelloReply(message=f"{x}: Hello {request.name}!")
+    
 
 def serve():
     port = "50051"
